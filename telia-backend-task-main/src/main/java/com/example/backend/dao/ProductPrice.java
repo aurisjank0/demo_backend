@@ -13,11 +13,11 @@ public class ProductPrice {
     private double id;
 
     @ManyToOne
-    @JoinColumn(name ="product_id")
+    @JoinColumn(name = "product_id")
     private Product product;
 
     @ManyToOne
-    @JoinColumn(name ="price_id")
+    @JoinColumn(name = "price_id")
     private Price price;
 
     public double getId() {

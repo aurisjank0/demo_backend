@@ -1,10 +1,5 @@
 package com.example.backend.dto;
 
-import lombok.Data;
-
-import javax.persistence.criteria.CriteriaBuilder;
-import java.util.Optional;
-
 public class Request {
     private double productId;
     private Long commitment;

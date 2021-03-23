@@ -1,7 +1,6 @@
 package com.example.backend.dao;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.Data;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

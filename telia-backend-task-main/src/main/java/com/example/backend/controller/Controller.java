@@ -28,7 +28,7 @@ public class Controller {
     @GetMapping(value = "/product/{id}")
     @ResponseBody
     public ProductInfo getProductPrice(@PathVariable double id) {
-        return productService.getProductPrice(id);
+        return productService.getProductPrices(id);
     }
 
     @PostMapping(value = "/calculate")
