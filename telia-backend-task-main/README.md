@@ -1,3 +1,6 @@
+## Swagger
+you can find APIs in {rootUrl}/
+
 ## Gaming equipment rental price calculation API
 For a gaming equipment rental service app we need an API to be able to calculate prices for rent.
 
