@@ -22,20 +22,20 @@ public class Product {
         return id;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public boolean isRentable() {
-        return rentable;
-    }
-
     public void setId(double id) {
         this.id = id;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public boolean isRentable() {
+        return rentable;
     }
 
     public void setRentable(boolean rentable) {
