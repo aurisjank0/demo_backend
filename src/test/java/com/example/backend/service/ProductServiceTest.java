@@ -19,29 +19,29 @@ public class ProductServiceTest {
     @Test
     public void test() {
         Request request = new Request(1L, 1L, null);
-        assertEquals(productService.calculatePrice(request).getBody().getTotalPrice(), 70);
+        assertEquals(70, productService.calculatePrice(request).getBody().getTotalPrice());
     }
 
     @Test
     public void test2() {
         Request request = new Request(7L, 2L, "2");
-        assertEquals(productService.calculatePrice(request).getBody().getTotalPrice(), 105);
+        assertEquals(105, productService.calculatePrice(request).getBody().getTotalPrice());
     }
 
     @Test
     public void test3() {
         Request request = new Request(4L, 7L, "7");
-        assertEquals(productService.calculatePrice(request).getBody().getTotalPrice(), 136);
+        assertEquals(136, productService.calculatePrice(request).getBody().getTotalPrice());
     }
 
     @Test
     public void getProducts(){
-        assertEquals(productService.getProducts().size(), 8);
+        assertEquals(8, productService.getProducts().size());
     }
 
     @Test
     public void getProductInfo(){
-        assertEquals(productService.getProductPrices(1L).getPrices().size(), 3);
-        assertEquals(productService.getProductPrices(1L).getPrices().get(1).getValue(), 30f);
+        assertEquals(3, productService.getProductPrices(1L).getPrices().size());
+        assertEquals(30f, productService.getProductPrices(1L).getPrices().get(1).getValue());
     }
 }
