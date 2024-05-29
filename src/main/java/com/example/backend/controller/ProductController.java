@@ -8,7 +8,6 @@ import com.example.backend.service.ProductService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,29 +20,26 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@SecurityRequirement(name = "basic")
+@SecurityRequirement(name = "jwt")
 @RequestMapping("/api/v1")
-public class Controller {
+public class ProductController {
 
     @Autowired
     ProductService productService;
 
 
-//    @PreAuthorize("hasAuthority('USER')")
     @GetMapping(value = "/products")
     @ResponseBody
     public List<Product> getProducts() {
         return productService.getProducts();
     }
 
-//    @PreAuthorize("hasAuthority('USER')")
     @GetMapping(value = "/product/{id}")
     @ResponseBody
     public ProductInfo getProductPrice(@PathVariable double id) {
         return productService.getProductPrices(id);
     }
 
-//    @PreAuthorize("hasAuthority('USER')")
     @PostMapping(value = "/calculate")
     @ResponseBody
     public ResponseEntity<Response> calculatePrice(@RequestParam double productId,

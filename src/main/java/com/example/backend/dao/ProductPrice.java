@@ -1,8 +1,13 @@
 package com.example.backend.dao;
 
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.Data;
 
-import javax.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Data
 @Entity
@@ -20,27 +25,4 @@ public class ProductPrice {
     @JoinColumn(name = "price_id")
     private Price price;
 
-    public double getId() {
-        return id;
-    }
-
-    public void setId(double id) {
-        this.id = id;
-    }
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
-    }
-
-    public Price getPrice() {
-        return price;
-    }
-
-    public void setPrice(Price price) {
-        this.price = price;
-    }
 }

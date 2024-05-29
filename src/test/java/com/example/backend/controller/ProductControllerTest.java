@@ -17,8 +17,8 @@ import org.springframework.web.context.WebApplicationContext;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(Controller.class)
-public class ControllerTest {
+@WebMvcTest(ProductController.class)
+public class ProductControllerTest {
 
     private MockMvc mockMvc;
 
@@ -26,7 +26,7 @@ public class ControllerTest {
     WebApplicationContext wContext;
 
     @MockBean
-    private Controller controller;
+    private ProductController productController;
 
     @Before
     public void setup() {

@@ -1,10 +1,12 @@
 package com.example.backend.dao;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.Data;
 
+@Data
 @Entity
 @Table(name = "product", schema = "DEV_DB")
 public class Product {
@@ -17,28 +19,4 @@ public class Product {
 
     @Column(name = "rentable")
     private boolean rentable;
-
-    public double getId() {
-        return id;
-    }
-
-    public void setId(double id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public boolean isRentable() {
-        return rentable;
-    }
-
-    public void setRentable(boolean rentable) {
-        this.rentable = rentable;
-    }
 }

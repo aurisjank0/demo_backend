@@ -1,12 +1,14 @@
 package com.example.backend.dao;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
+@Data
 @Entity
 @Table(name = "price")
 public class Price {
@@ -18,30 +20,7 @@ public class Price {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private Long commitmentMonths;
 
-    @Column
+    @Column(name = "price_value")
     private float value;
 
-    public double getId() {
-        return id;
-    }
-
-    public void setId(double id) {
-        this.id = id;
-    }
-
-    public Long getCommitmentMonths() {
-        return commitmentMonths;
-    }
-
-    public void setCommitmentMonths(Long commitmentMonths) {
-        this.commitmentMonths = commitmentMonths;
-    }
-
-    public float getValue() {
-        return value;
-    }
-
-    public void setValue(float value) {
-        this.value = value;
-    }
 }

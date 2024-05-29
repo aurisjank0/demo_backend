@@ -1,6 +1,8 @@
 spring:
+  sql:
+    init:
+      mode: always
   datasource:
-    initialization-mode: always
     url: jdbc:h2:file:./.dev/local;INIT=CREATE SCHEMA IF NOT EXISTS DEV_DB
     driver-class-name: org.h2.Driver
     username: sa
@@ -18,12 +20,19 @@ spring:
     console:
       enabled: true
   security:
-    user:
-      name: user
-      password: user
-logging:
-  level:
-    root: info
+    basic:
+      enabled: false
+#
+debug: true
+#logging:level:org:springframework: DEBUG
 springdoc:
   swagger-ui:
     path: /
+server:
+  port: 9090
+
+security:
+  jwt:
+    secret-key: 3cfa76ef14937c1c0ea519f8fc057a80fcd04a7420f8e8bcd0a7567c272e007b
+    # 1h in millisecond
+    expiration-time: 3600000
