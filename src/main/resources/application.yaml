@@ -23,7 +23,7 @@ spring:
     basic:
       enabled: false
 #
-debug: true
+#debug: true
 #logging:level:org:springframework: DEBUG
 springdoc:
   swagger-ui:
