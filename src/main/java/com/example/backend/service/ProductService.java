@@ -1,8 +1,8 @@
 package com.example.backend.service;
 
 import com.example.backend.dao.Product;
+import com.example.backend.dto.ProductCalculationRequest;
 import com.example.backend.dto.ProductInfo;
-import com.example.backend.dto.Request;
 import com.example.backend.dto.Response;
 import org.springframework.http.ResponseEntity;
 
@@ -13,7 +13,7 @@ public interface ProductService {
 
     List<Product> getProducts();
 
-    ProductInfo getProductPrices(double id);
+    ProductInfo getProductPrices(long id);
 
-    ResponseEntity<Response> calculatePrice(Request request);
+    ResponseEntity<Response> calculatePrice(ProductCalculationRequest productCalculationRequest);
 }

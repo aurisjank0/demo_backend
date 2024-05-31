@@ -12,7 +12,7 @@ import lombok.Data;
 public class Product {
     @Id
     @Column
-    private double id;
+    private long id;
 
     @Column(name = "title")
     private String title;

@@ -1,6 +1,6 @@
 package com.example.backend.service;
 
-import com.example.backend.dto.Request;
+import com.example.backend.dto.ProductCalculationRequest;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,20 +18,20 @@ public class ProductServiceTest {
 
     @Test
     public void test() {
-        Request request = new Request(1L, 1L, null);
-        assertEquals(70, productService.calculatePrice(request).getBody().getTotalPrice());
+        ProductCalculationRequest productCalculationRequest = new ProductCalculationRequest(1L, 1L, null);
+        assertEquals(70, productService.calculatePrice(productCalculationRequest).getBody().getTotalPrice());
     }
 
     @Test
     public void test2() {
-        Request request = new Request(7L, 2L, "2");
-        assertEquals(105, productService.calculatePrice(request).getBody().getTotalPrice());
+        ProductCalculationRequest productCalculationRequest = new ProductCalculationRequest(7L, 2L, 2L);
+        assertEquals(105, productService.calculatePrice(productCalculationRequest).getBody().getTotalPrice());
     }
 
     @Test
     public void test3() {
-        Request request = new Request(4L, 7L, "7");
-        assertEquals(136, productService.calculatePrice(request).getBody().getTotalPrice());
+        ProductCalculationRequest productCalculationRequest = new ProductCalculationRequest(4L, 7L, 7L);
+        assertEquals(136, productService.calculatePrice(productCalculationRequest).getBody().getTotalPrice());
     }
 
     @Test

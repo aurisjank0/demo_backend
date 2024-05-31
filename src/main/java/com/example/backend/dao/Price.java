@@ -14,7 +14,7 @@ import lombok.Data;
 public class Price {
     @Id
     @Column
-    private double id;
+    private long id;
 
     @Column(name = "commitment_months")
     @JsonInclude(JsonInclude.Include.NON_NULL)

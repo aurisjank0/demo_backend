@@ -14,7 +14,7 @@ import lombok.Data;
 public class ProductPrice {
     @Id
     @Column
-    private double id;
+    private long id;
 
     @ManyToOne
     @JoinColumn(name = "product_id")

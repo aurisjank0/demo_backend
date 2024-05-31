@@ -7,8 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Request {
-    private double productId;
+public class ProductCalculationRequest {
+    private Long productId;
     private Long commitment;
-    private String returnMonths;
+    private Long returnMonths;
 }

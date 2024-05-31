@@ -1,8 +1,8 @@
 package com.example.backend.controller;
 
 import com.example.backend.dao.Product;
+import com.example.backend.dto.ProductCalculationRequest;
 import com.example.backend.dto.ProductInfo;
-import com.example.backend.dto.Request;
 import com.example.backend.dto.Response;
 import com.example.backend.service.ProductService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
@@ -11,13 +11,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @SecurityRequirement(name = "jwt")
@@ -36,22 +35,17 @@ public class ProductController {
 
     @GetMapping(value = "/product/{id}")
     @ResponseBody
-    public ProductInfo getProductPrice(@PathVariable double id) {
+    public ProductInfo getProductPrice(@PathVariable long id) {
         return productService.getProductPrices(id);
     }
 
     @PostMapping(value = "/calculate")
     @ResponseBody
-    public ResponseEntity<Response> calculatePrice(@RequestParam double productId,
-                                                   @RequestParam Long commitment,
-                                                   @RequestParam(required = false) Optional<String> returnMonths) {
-        Request request;
-        if (returnMonths.isPresent() && returnMonths.get().equals("null")) {
-            request = new Request(productId, commitment, null);
-        } else {
-            request = new Request(productId, commitment, returnMonths.get());
+    public ResponseEntity<Response> calculatePrice(@RequestBody ProductCalculationRequest productCalculationRequest) {
+        if (productCalculationRequest.getProductId() == null || productCalculationRequest.getCommitment() == null) {
+            return ResponseEntity.badRequest().build();
         }
-        return productService.calculatePrice(request);
+        return productService.calculatePrice(productCalculationRequest);
     }
 
 }
